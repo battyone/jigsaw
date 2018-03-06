@@ -147,10 +147,13 @@ def _pad_image(image, factor=2):
     """
     if factor < 1:
         raise ValueError('must pad image by a factor >= 1.')
-    num_rows, num_cols, _ = image.shape
+    num_rows = image.shape[0]
+    num_cols = image.shape[1]
     pad_rows = int(num_rows * (factor - 1)) // 2
     pad_cols = int(num_cols * (factor - 1)) // 2
-    padding = ((pad_rows, pad_rows), (pad_cols, pad_cols), (0, 0))
+    padding = [(pad_rows, pad_rows), (pad_cols, pad_cols)]
+    if len(image.shape) == 3:
+        padding.append((0, 0))
     return np.pad(image, padding, mode='edge')
 
 
