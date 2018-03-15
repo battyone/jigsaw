@@ -175,7 +175,7 @@ def get_puzzle_piece(image, background=GREEN_SCREEN_RGB):
     return _normalize(padded_image, mask, contour)
 
 
-def _visualize_piece(piece):
+def visualize_piece(piece):
     """Visualize the data structures contained in a PuzzlePiece.
 
     :param piece: a PuzzlePiece named tuple.
@@ -210,7 +210,7 @@ def _show_piece(filepath):
     piece = read_piece(filepath)
     pyplot.figure(figsize=(10, 10))
     pyplot.suptitle(filepath)
-    _visualize_piece(piece)
+    visualize_piece(piece)
     pyplot.show()
 
 
@@ -228,7 +228,7 @@ def _slideshow(file_pattern):
         pyplot.figure(1, figsize=(10, 10))
         pyplot.clf()
         pyplot.suptitle(filepath)
-        _visualize_piece(piece)
+        visualize_piece(piece)
         pyplot.draw()
         pyplot.waitforbuttonpress()
     pyplot.close()
