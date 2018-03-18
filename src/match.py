@@ -30,7 +30,7 @@ def _smooth(signal, cutoff, d=1):
     return np.fft.irfft(f)
 
 
-def _smooth_contour(c, cutoff=2.5e-3):
+def _smooth_contour(c, cutoff=3.5e-3):
     c1 = c[:, 0]
     c2 = c[:, 1]
     c1f = _smooth(c1, cutoff)
